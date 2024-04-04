@@ -71,7 +71,22 @@ public class BetterMenu implements Listener {
   }
 
   public void setButtonList(String symbol, List<Button> buttons) {
-    buttons.forEach(button -> setButton(symbol, button));
+    int index = 0;
+    int buttonIndex = 0;
+    for (List<String> line : this.lines) {
+      for (String reference : line) {
+        if (reference.equals(symbol)) {
+          inventory.setItem(index, buttons.get(buttonIndex).getItemStack());
+          this.buttons.put(index, buttons.get(buttonIndex));
+          if (buttonIndex + 1 < buttons.size()) {
+            buttonIndex++;
+          } else {
+            return;
+          }
+        }
+        index++;
+      }
+    }
   }
 
   public void open(Player player) {
@@ -110,6 +125,7 @@ public class BetterMenu implements Listener {
         event.setCancelled(true);
         break;
       default:
+        event.setCancelled(true);
         ButtonAction action = buttons.get(event.getSlot()).getButtonAction();
 
         Player player = (Player) event.getWhoClicked();

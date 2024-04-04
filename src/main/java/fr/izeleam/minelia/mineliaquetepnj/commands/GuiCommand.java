@@ -1,6 +1,6 @@
 package fr.izeleam.minelia.mineliaquetepnj.commands;
 
-import fr.izeleam.minelia.mineliaquetepnj.QuestMenu;
+import fr.izeleam.minelia.mineliaquetepnj.menus.QuestMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

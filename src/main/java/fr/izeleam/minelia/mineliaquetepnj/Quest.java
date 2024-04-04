@@ -1,5 +1,8 @@
 package fr.izeleam.minelia.mineliaquetepnj;
 
+import net.minecraft.server.v1_8_R3.BlockPressurePlateBinary.EnumMobType;
+import org.bukkit.Material;
+
 public class Quest {
 
   private final QuestType type;
@@ -28,5 +31,23 @@ public class Quest {
 
   public String getMobType() {
     return mobType;
+  }
+
+  public String getRarity() {
+    return QuestManager.getInstance().getQuestRarity(this);
+  }
+
+  @Override
+  public String toString() {
+    switch (type) {
+      case BREAK:
+        return "Break " + amount + " " + blockType;
+      case KILL:
+        return "Kill " + amount + " " + mobType;
+      case PLACE:
+        return "Place " + amount + " " + blockType;
+      default:
+        return "Unknown quest";
+    }
   }
 }
