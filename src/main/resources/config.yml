@@ -1,0 +1,178 @@
+database:
+  host: localhost
+  port: 3306
+  database: database
+  username: root
+  password: password
+  table: table
+
+npc:
+  name: "Quest Master"
+  skin: "MHF_Villager"
+  location:
+    world: world
+    x: 10
+    y: 64
+    z: 100
+    yaw: 0
+    pitch: 0
+
+quests:
+  mystery:
+    levels: 50
+    rewards:
+      - amount: 50000
+        probability: 39.8
+      - amount: 100000
+        probability: 10
+      - amount: 150000
+        probability: 2
+      - amount: 1
+        item: minelia_piece
+        probability: 20
+      - amount: 2
+        item: minelia_piece
+        probability: 5
+      - amount: 3
+        item: minelia_piece
+        probability: 5
+      - item: epic_key
+        probability: 0.1
+      - item: blaze_spawner
+        probability: 0.1
+    quests:
+      - type: KILL
+        amount: 2000
+        mobType: MONSTER
+      - type: BREAK
+        amount: 2000
+        blockType: BLOCK
+      - type: KILL
+        amount: 500
+        mobType: ZOMBIE
+      - type: KILL
+        amount: 3000
+        mobType: PLAYER
+      - type: BREAK
+        amount: 3000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 1000
+        blockType: WOOD
+      - type: KILL
+        amount: 500
+        mobType: COW
+      - type: BREAK
+        amount: 4000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 200
+        blockType: ORE
+
+  legendary:
+    levels: 100
+    rewards:
+      - amount: 100000
+        probability: 39.8
+      - amount: 200000
+        probability: 10
+      - amount: 300000
+        probability: 2
+      - amount: 1
+        item: minelia_piece
+        probability: 20
+      - amount: 3
+        item: minelia_piece
+        probability: 5
+      - amount: 5
+        item: minelia_piece
+        probability: 3
+      - item: rare_key
+        probability: 0.1
+      - item: zombie_spawner
+        probability: 0.1
+    quests:
+      - type: PLACE
+        amount: 4000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 400
+        blockType: ORE
+      - type: KILL
+        amount: 5000
+        mobType: MONSTER
+      - type: BREAK
+        amount: 8000
+        blockType: BLOCK
+      - type: KILL
+        amount: 10000
+        mobType: PLAYER
+      - type: KILL
+        amount: 1000
+        mobType: ZOMBIE
+      - type: KILL
+        amount: 1000
+        mobType: SKELETON
+      - type: BREAK
+        amount: 5000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 8000
+        blockType: BLOCK
+      - type: PLACE
+        amount: 5000
+        blockType: BLOCK
+
+  minelia:
+    levels: 150
+    rewards:
+      - amount: 200000
+        probability: 39.2
+      - amount: 400000
+        probability: 10
+      - amount: 600000
+        probability: 2
+      - amount: 3
+        item: minelia_piece
+        probability: 20
+      - amount: 5
+        item: minelia_piece
+        probability: 5
+      - amount: 10
+        item: minelia_piece
+        probability: 3
+      - item: legendary_key
+        probability: 0.1
+      - item: golem_spawner
+        probability: 0.1
+    quests:
+      - type: PLACE
+        amount: 2000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 20000
+        blockType: BLOCK
+      - type: KILL
+        amount: 10000
+        mobType: MONSTER
+      - type: KILL
+        amount: 20000
+        mobType: PLAYER
+      - type: BREAK
+        amount: 10000
+        blockType: BLOCK
+      - type: BREAK
+        amount: 5000
+        blockType: ORE
+      - type: KILL
+        amount: 3000
+        mobType: ZOMBIE
+      - type: BREAK
+        amount: 2000
+        blockType: VINE
+      - type: PLACE
+        amount: 5000
+        blockType: BLOCK
+      - type: KILL
+        amount: 4000
+        mobType: SPIDER

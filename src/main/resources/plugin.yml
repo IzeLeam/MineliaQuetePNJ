@@ -1,0 +1,3 @@
+name: MineliaQuetePNJ
+version: '${project.version}'
+main: fr.izeleam.minelia.mineliaquetepnj.MineliaQuetePNJ
