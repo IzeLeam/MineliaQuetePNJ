@@ -23,6 +23,10 @@ public class DataVariants {
     BlockCategory(Material... materials) {
       this.materials = Arrays.asList(materials);
     }
+
+    public List<Material> getMaterials() {
+      return materials;
+    }
   }
 
   public enum VariantBlocks {
@@ -432,5 +436,4 @@ public class DataVariants {
       return UNKNOWN;
     }
   }
-
 }

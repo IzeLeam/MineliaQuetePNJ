@@ -2,11 +2,15 @@ package fr.izeleam.minelia.mineliaquetepnj.utils.gui;
 
 import java.util.List;
 import java.util.Map;
+import org.bukkit.Color;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.Dye;
+import org.bukkit.material.MaterialData;
 
 public class BetterItem extends ItemStack {
 
@@ -94,6 +98,11 @@ public class BetterItem extends ItemStack {
     assert meta != null;
     meta.removeItemFlags(flags);
     this.setItemMeta(meta);
+    return this;
+  }
+
+  public BetterItem setColor(DyeColor color) {
+    this.setDurability(color.getData());
     return this;
   }
 

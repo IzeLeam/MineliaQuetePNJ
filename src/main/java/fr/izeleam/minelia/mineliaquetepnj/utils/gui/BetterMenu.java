@@ -16,6 +16,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
 public class BetterMenu implements Listener {
@@ -51,6 +52,18 @@ public class BetterMenu implements Listener {
 
   public void addLine() {
     this.addLine(Arrays.asList("", "", "", "", "", "", "", "", ""));
+  }
+
+  public void setItemStack(String symbol, BetterItem item) {
+    int index = 0;
+    for (List<String> line : this.lines) {
+      for (String reference : line) {
+        if (reference.equals(symbol)) {
+          inventory.setItem(index, item);
+        }
+        index++;
+      }
+    }
   }
 
   public void setButton(String symbol, Button button) {
@@ -109,7 +122,7 @@ public class BetterMenu implements Listener {
 
   @EventHandler
   public void onInventoryClick(InventoryClickEvent event) {
-    if (event.getClickedInventory() == null) {
+    if (event.getClickedInventory() == null || event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
       return;
     }
     if (!event.getInventory().getViewers().contains(event.getWhoClicked())) {

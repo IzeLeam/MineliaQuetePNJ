@@ -1,7 +1,10 @@
 package fr.izeleam.minelia.mineliaquetepnj;
 
 import java.util.List;
+import net.minecraft.server.v1_8_R3.SpawnerCreature;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.CreatureSpawner;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -31,23 +34,28 @@ public class Reward {
 
   public static void giveReward(Player player, String questRarity) {
     List<Reward> rewards = QuestManager.getInstance().getRewards(questRarity);
-    double[] probabilities = new double[rewards.size()];
-    probabilities[0] = 0;
-    for (int i = 1; i < rewards.size(); i++) {
-      probabilities[i] = probabilities[i - 1] + rewards.get(i).getProbability();
-    }
-    double random = Math.random();
-    for (int i = 0; i < probabilities.length; i++) {
-      if ( i - 1 > 0 && random < probabilities[i] && random > probabilities[i - 1]) {
-        Reward reward = rewards.get(i);
+    final double max = rewards.stream().mapToDouble(Reward::getProbability).sum();
+    double sum = 0;
+    final double rand = Math.random() * max;
+    for (Reward reward : rewards) {
+      sum += reward.getProbability();
+      if (sum >= rand) {
         if (reward.getItem() == null) {
-          player.sendMessage("§aYou received " + reward.getAmount() + " $ !");
-          player.giveExp(reward.getAmount());
+          MineliaQuetePNJ.getInstance().getServer().dispatchCommand(MineliaQuetePNJ.getInstance().getServer().getConsoleSender(), "eco give " + player.getName() + " " + reward.getAmount());
+          player.sendMessage("§aYou have received " + reward.getAmount() + " coins!");
           return;
-        } else if (reward.getItem().equals("minelia_piece")) {
-          player.sendMessage("§aYou received " + reward.getAmount() + " Minelia piece!");
-          ItemStack mineliaPiece = new ItemStack(Material.GOLD_NUGGET, reward.getAmount());
-          player.getInventory().addItem(mineliaPiece);
+        }
+        if (reward.getItem().equalsIgnoreCase("minelia_piece")) {
+          MineliaQuetePNJ.getInstance().getServer().dispatchCommand(MineliaQuetePNJ.getInstance().getServer().getConsoleSender(), "mitems give " + player.getName() + " minelia-money " + reward.getAmount());
+          player.sendMessage("§aYou have received " + reward.getAmount() + " Minelia pieces!");
+          return;
+        }
+        if (reward.getItem().matches(".*_key")) {
+          player.sendMessage("§aYou have received a + " + reward.getItem().substring(0, reward.getItem().length() - 4) + " key!");
+          return;
+        }
+        if (reward.getItem().matches(".*_spawner")) {
+          player.sendMessage("§aYou have received a " + reward.getItem().substring(0, reward.getItem().length() - 8) + " spawner!");
           return;
         }
       }

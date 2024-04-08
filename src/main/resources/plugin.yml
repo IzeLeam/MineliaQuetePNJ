@@ -2,6 +2,7 @@ name: MineliaQuetePNJ
 version: '${project.version}'
 main: fr.izeleam.minelia.mineliaquetepnj.MineliaQuetePNJ
 commands:
-  gui:
-    description: Open the quest GUI
-    usage: /<command>
+  questgive:
+    description: Give a random quest to a player based on the rarity
+    usage: /<command> <player> <rarity>
+    aliases: [qg]

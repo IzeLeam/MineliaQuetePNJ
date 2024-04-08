@@ -1,14 +1,15 @@
 database:
   host: localhost
   port: 3306
-  database: database
-  username: root
-  password: password
-  table: table
+  database: test
+  username: plugin
+  password: plugin
+  table: progress
 
 npc:
   name: "Quest Master"
-  skin: "MHF_Villager"
+  texture: ""
+  signature: ""
   location:
     world: world
     x: 10
@@ -16,6 +17,11 @@ npc:
     z: 100
     yaw: 0
     pitch: 0
+
+colors:
+  minelia: "3"
+  legendary: "6"
+  mystery: "5"
 
 quests:
   mystery:
@@ -52,39 +58,39 @@ quests:
       0:
         type: KILL
         amount: 2000
-        mobType: MONSTER
+        object: MONSTER
       1:
         type: BREAK
         amount: 2000
-        blockType: BLOCK
+        object: BLOCK
       2:
         type: KILL
         amount: 500
-        mobType: ZOMBIE
+        object: ZOMBIE
       3:
         type: KILL
         amount: 3000
-        mobType: PLAYER
+        object: PLAYER
       4:
         type: BREAK
         amount: 3000
-        blockType: BLOCK
+        object: BLOCK
       5:
         type: BREAK
         amount: 1000
-        blockType: WOOD
+        object: WOOD
       6:
         type: KILL
         amount: 500
-        mobType: COW
+        object: COW
       7:
         type: BREAK
         amount: 4000
-        blockType: BLOCK
+        object: BLOCK
       8:
         type: BREAK
         amount: 200
-        blockType: ORE
+        object: ORES
 
   legendary:
     levels: 100
@@ -120,43 +126,47 @@ quests:
       0:
         type: PLACE
         amount: 4000
-        blockType: BLOCK
+        object: BLOCK
       1:
         type: BREAK
         amount: 400
-        blockType: ORE
+        object: ORES
       2:
         type: KILL
         amount: 5000
-        mobType: MONSTER
+        object: MONSTER
       3:
         type: BREAK
         amount: 8000
-        blockType: BLOCK
+        object: BLOCK
       4:
         type: KILL
         amount: 10000
-        mobType: PLAYER
+        object: PLAYER
       5:
         type: KILL
         amount: 1000
-        mobType: ZOMBIE
+        object: ZOMBIE
       6:
         type: KILL
         amount: 1000
-        mobType: SKELETON
+        object: SKELETON
       7:
         type: BREAK
         amount: 5000
-        blockType: BLOCK
+        object: BLOCK
       8:
         type: BREAK
         amount: 8000
-        blockType: BLOCK
+        object: BLOCK
       9:
         type: PLACE
         amount: 5000
-        blockType: BLOCK
+        object: BLOCK
+      10:
+        type: BREAK
+        amount: 2
+        object: ORES
 
   minelia:
     levels: 150
@@ -192,40 +202,40 @@ quests:
       0:
         type: PLACE
         amount: 2000
-        blockType: BLOCK
+        object: BLOCK
       1:
         type: BREAK
         amount: 20000
-        blockType: BLOCK
+        object: BLOCK
       2:
         type: KILL
         amount: 10000
-        mobType: MONSTER
+        object: MONSTER
       3:
         type: KILL
         amount: 20000
-        mobType: PLAYER
+        object: PLAYER
       4:
         type: BREAK
         amount: 10000
-        blockType: BLOCK
+        object: BLOCK
       5:
         type: BREAK
         amount: 5000
-        blockType: ORE
+        object: ORES
       6:
         type: KILL
         amount: 3000
-        mobType: ZOMBIE
+        object: ZOMBIE
       7:
         type: BREAK
         amount: 2000
-        blockType: VINE
+        object: VINE
       8:
         type: PLACE
         amount: 5000
-        blockType: BLOCK
+        object: BLOCK
       9:
         type: KILL
         amount: 4000
-        mobType: SPIDER
+        object: SPIDER

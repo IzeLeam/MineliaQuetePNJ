@@ -1,9 +1,15 @@
 package fr.izeleam.minelia.mineliaquetepnj;
 
+import fr.izeleam.minelia.mineliaquetepnj.utils.DataVariants.BlockCategory;
+import fr.izeleam.minelia.mineliaquetepnj.utils.DataVariants.MobHostility;
+import fr.izeleam.minelia.mineliaquetepnj.utils.DataVariants.MobType;
+import fr.izeleam.minelia.mineliaquetepnj.utils.DataVariants.Mobs;
+import fr.izeleam.minelia.mineliaquetepnj.utils.DataVariants.VariantBlocks;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -35,10 +41,10 @@ public class QuestManager {
       for (String questIndex : config.getConfigurationSection("quests." + questRarity + ".quests").getKeys(false)) {
         String type = config.getString("quests." + questRarity + ".quests." + questIndex + ".type");
         int amount = config.getInt("quests." + questRarity + ".quests." + questIndex + ".amount");
-        String blockType = config.getString("quests." + questRarity + ".quests." + questIndex + ".blockType");
-        String mobType = config.getString("quests." + questRarity + ".quests." + questIndex + ".mobType");
+        String obj = config.getString("quests." + questRarity + ".quests." + questIndex + ".object");
 
-        quests.add(new Quest(QuestType.valueOf(type), amount, blockType, mobType));
+        Object object = getObject(type, obj);
+        quests.add(new Quest(Integer.parseInt(questIndex), QuestType.valueOf(type), amount, object));
       }
 
       for (String rewardIndex : config.getConfigurationSection("quests." + questRarity + ".rewards").getKeys(false)) {
@@ -46,13 +52,67 @@ public class QuestManager {
         double probability = config.getDouble("quests." + questRarity + ".rewards." + rewardIndex + ".probability");
         String item = config.getString("quests." + questRarity + ".rewards." + rewardIndex + ".item");
 
-        rewards.add(new Reward(amount, probability, item));
+        rewards.add(new Reward(amount == 0 ? 1 : amount, probability, item));
       }
 
       this.costs.put(questRarity, config.getInt("quests." + questRarity + ".levels"));
       this.quests.put(questRarity, quests);
       this.rewards.put(questRarity, rewards);
     }
+  }
+
+  private static Object getObject(String type, String obj) {
+    Object object = null;
+    if (type.equals("BLOCK")) {
+      return null;
+    }
+
+    switch (type) {
+      case "BREAK":
+      case "PLACE":
+        for (Material material : Material.values()) {
+          if (material.name().equalsIgnoreCase(obj)) {
+            object = material;
+            break;
+          }
+        }
+        for (BlockCategory blockCategory : BlockCategory.values()) {
+          if (blockCategory.name().equalsIgnoreCase(obj)) {
+            object = blockCategory;
+            break;
+          }
+        }
+        for (VariantBlocks variantBlocks : VariantBlocks.values()) {
+          if (variantBlocks.name().equalsIgnoreCase(obj)) {
+            object = variantBlocks;
+            break;
+          }
+        }
+        break;
+      case "KILL":
+        for (Mobs mob : Mobs.values()) {
+          if (mob.name().equalsIgnoreCase(obj)) {
+            object = mob;
+            break;
+          }
+        }
+        for (MobType mobType : MobType.values()) {
+          if (mobType.name().equalsIgnoreCase(obj)) {
+            object = mobType;
+            break;
+          }
+        }
+        for (MobHostility mobHostility : MobHostility.values()) {
+          if (mobHostility.name().equalsIgnoreCase(obj)) {
+            object = mobHostility;
+            break;
+          }
+        }
+        break;
+      default:
+        throw new IllegalArgumentException("Unknown quest type " + type);
+    }
+    return object;
   }
 
   public List<Quest> getQuests(String type) {
@@ -91,5 +151,10 @@ public class QuestManager {
       }
     }
     return null;
+  }
+
+  public static Quest getRandomQuest(String rarity) {
+    List<Quest> quests = instance.getQuests(rarity);
+    return quests.get((int) (Math.random() * quests.size()));
   }
 }

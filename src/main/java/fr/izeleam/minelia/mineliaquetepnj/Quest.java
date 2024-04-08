@@ -1,20 +1,21 @@
 package fr.izeleam.minelia.mineliaquetepnj;
 
-import net.minecraft.server.v1_8_R3.BlockPressurePlateBinary.EnumMobType;
-import org.bukkit.Material;
-
 public class Quest {
 
+  private final int id;
   private final QuestType type;
   private final int amount;
-  private final String blockType;
-  private final String mobType;
+  private final Object object;
 
-  public Quest(QuestType type, int amount, String blockType, String mobType) {
+  public Quest(int id, QuestType type, int amount, Object object) {
+    this.id = id;
     this.type = type;
     this.amount = amount;
-    this.blockType = blockType;
-    this.mobType = mobType;
+    this.object = object;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public QuestType getType() {
@@ -25,12 +26,8 @@ public class Quest {
     return amount;
   }
 
-  public String getBlockType() {
-    return blockType;
-  }
-
-  public String getMobType() {
-    return mobType;
+  public Object getObject() {
+    return object;
   }
 
   public String getRarity() {
@@ -39,15 +36,26 @@ public class Quest {
 
   @Override
   public String toString() {
+    StringBuilder builder = new StringBuilder();
     switch (type) {
       case BREAK:
-        return "Break " + amount + " " + blockType;
+        builder.append("Cassez ");
+        break;
       case KILL:
-        return "Kill " + amount + " " + mobType;
+        builder.append("Tuez ");
+        break;
       case PLACE:
-        return "Place " + amount + " " + blockType;
+        builder.append("Placez ");
+        break;
       default:
         return "Unknown quest";
     }
+
+    if (object == null) {
+      builder.append(amount).append(" ").append("blocs");
+      return builder.toString();
+    }
+    builder.append(amount).append(" ").append(object.toString().toLowerCase());
+    return builder.toString();
   }
 }
