@@ -1,0 +1,9 @@
+name: MineliaQuetePNJ
+version: '${project.version}'
+main: dev.minelia.mineliaquetepnj.MineliaQuetePNJ
+commands:
+  questgive:
+    description: Give a random quest to a player based on the rarity
+    usage: /<command> <player> <rarity>
+    permission: minelia.npcquest.give
+    aliases: [qg]

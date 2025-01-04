@@ -1,0 +1,3 @@
+minelia.npcquest.give:
+    description: Give a random quest to a player based on the rarity
+    default: op
