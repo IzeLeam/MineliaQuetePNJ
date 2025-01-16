@@ -75,6 +75,5 @@ public final class MineliaQuetePNJ extends JavaPlugin {
 
   @Override
   public void onDisable() {
-    saveConfig();
   }
 }

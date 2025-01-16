@@ -10,9 +10,9 @@ npc:
     yaw: 0
     pitch: 0
 
-key_give_command: "/crazycrates give p %rarity% %amount% %player%"
+key_give_command: "crazycrates give p %rarity% %amount% %player%"
 spawner_give_command": "zspawner give %player% %type%"
-minelia_piece_give_command: "./mitems give %player% minelia-money %amount%"
+minelia_piece_give_command: "mitems give %player% minelia-money %amount%"
 money_give_command: "eco give %player% %amount%"
 
 # Les variables possibles à utiliser dans les messages sont:
