@@ -36,19 +36,6 @@ public final class MineliaQuetePNJ extends JavaPlugin {
 
     saveResource("permissions.yml", false);
     saveDefaultConfig();
-    
-    FileConfiguration config = getConfig();
-    File configFile = new File(getDataFolder(), "config.yml");
-
-    if (configFile.exists()) {
-      YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(getResource("config.yml")));
-      for (String key : defaultConfig.getKeys(true)) {
-        if (!config.contains(key)) {
-          config.set(key, defaultConfig.get(key));
-        }
-      }
-      saveConfig();
-    }
 
     // Registering the commands
     Bukkit.getPluginCommand("questgive").setExecutor(new GiveQuestCommand());
@@ -71,9 +58,5 @@ public final class MineliaQuetePNJ extends JavaPlugin {
     // Initialize the managers
     NPCManager npcManager = new NPCManager(this);
     QuestManager.getInstance();
-  }
-
-  @Override
-  public void onDisable() {
   }
 }

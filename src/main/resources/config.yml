@@ -10,6 +10,7 @@ npc:
     yaw: 0
     pitch: 0
 
+test: "test"
 key_give_command: "crazycrates give p %rarity% %amount% %player%"
 spawner_give_command": "zspawner give %player% %type%"
 minelia_piece_give_command: "mitems give %player% minelia-money %amount%"
