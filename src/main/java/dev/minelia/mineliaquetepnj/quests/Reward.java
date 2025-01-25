@@ -52,7 +52,7 @@ public class Reward {
       String spawnerCommand = MineliaQuetePNJ.getInstance().getConfig().getString("spawner_give_command");
       Bukkit.dispatchCommand(Bukkit.getConsoleSender(), spawnerCommand.replace("%player%", player.getName()).replace("%type%", type));
     } else if (item.contains("piece")) {
-      player.sendMessage("§aVous avez reçu " + amount + " pièces Minelia !");
+      player.sendMessage("§aVous avez reçu " + amount + " pièce(s) Minelia !");
       String pieceCommand = MineliaQuetePNJ.getInstance().getConfig().getString("minelia_piece_give_command");
       Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
           pieceCommand.replace("%player%", player.getName()).replace("%amount%", String.valueOf(amount)));
