@@ -143,10 +143,23 @@ public class QuestMenu extends BetterMenu {
       final FileConfiguration config = MineliaQuetePNJ.getInstance().getConfig();
       final String line = config.getString("menu.books.rewards");
       return ChatColor.translateAlternateColorCodes('&', line
-          .replace("%amount%", String.valueOf(reward.getAmount()))
+          .replace("%amount%", long_number_formater(String.valueOf(reward.getAmount())))
           .replace("%probability%", String.valueOf(reward.getProbability()))
           .replace("%translation%", reward.getTranslation())
           .replace("%color%", QuestManager.getInstance().getQuestRarity(rarity).getColor()));
     }).collect(Collectors.toList());
+  }
+
+  private String long_number_formater(String number) {
+    String result = "";
+    int count = 0;
+    for (int i = number.length() - 1; i >= 0; i--) {
+      result = number.charAt(i) + result;
+      count++;
+      if (count % 3 == 0 && i != 0) {
+        result = " " + result;
+      }
+    }
+    return result;
   }
 }
