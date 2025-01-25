@@ -1,7 +1,7 @@
 npc:
   name: "&6&lTroque"
-  texture: "ewogICJ0aW1lc3RhbXAiIDogMTcwNzE0NTY1NTU3NSwKICAicHJvZmlsZUlkIiA6ICI3YWZjZmJjYjQ1Mzg0NDkxYWUwYjIwNGJiMWEyOThmOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJBeXNlbF8iLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTE1YWYzMjA4ZTdmODRmMDM1ZTQ0MGZkOGY2NTRlYThmMGFiNmE2ZWM5YjM2M2VmNGI0Mzk0YzBjYzgxYzgyMSIKICAgIH0KICB9Cn0="
-  signature: "I/+/5ce0zsZ0LeBqGPUtqCDf+ciq2AwvF8wU0qcCV62hjtwW6mJmZ9RBYWQB3AJd56CiN9SXYmRtB9gch/6/W6TixpsZiIeDt5Y7fLsMLkB6nctxRziONCa4mCRRjpc/knUnGw+M1vMAfcjCYZns4XnLbPGxvcPVyvu4udlpL6ZC4YWwa8VffdIl3o6RNyzC1VFaam8EENBww+tNeVJeOQ+UUCEade6LlLmIYXYZ95gCSQU8YbplZcaypytsLpfzRQb3SweOqtJarGBPYdWEJ3eInSolbM0ID3ro+98fxHmrOqqznw/lz3bepyV+bg6yGAcRar3B6o+ayVzaIthBgSA2/CE6CttVETefh4+lxzndwwSsVT4JY+ds2fTXijLMtz6WEDuawDvc5nqJc7SjbW2V55evRDlIOgkxJDeFRs3AGLF2QJBVZV5eScKLmvKAtTwqsyKXhjaNLaBOYLj0AVM8q/le/LIHCgGYNtOF1ouKVqNZ/Y1HtFqO8WFziGgrKLPHecfTyvV6YUZKmMEF+viVN5z8bszfwo7pMG7fOX63Jf5tLwvu2s86ZdGK2ZlPoLo0oZvdidHngTZb0NKJZFOxcI+2q1+svS9J7d205PlF91djx+BQZ4e2zTPHM3HrMPzHV6qPMED3c/rXkfHZYUWap5eZ/J13iVe0iA5a85M="
+  texture: "eyJ0aW1lc3RhbXAiOjE0OTk2ODI1OTk0NzMsInByb2ZpbGVJZCI6ImRhNzQ2NWVkMjljYjRkZTA5MzRkOTIwMTc0NDkxMzU1IiwicHJvZmlsZU5hbWUiOiJJc2F5bGEiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2UwNzUyMjYxZGZkMWUzOTU3NTJmOTk0YmE0ODhhOTQ3Y2M0YTM1NTM3ZWIxZTJhZDdjNDQ2MDgyNGZlOWQyIn19fQ=="
+  signature: "dfhwW/gbbaPkG+DemUCWRB+RhVYaCbmDkVRUxY2NFpAEhQZsaKyK86M0XshXdHc1uTPDoYu04MmO5V+1Xj0aGZhK/OF3UEOXlDkbwLOq66MYA8avEuiBlcnt1sPsbT4AVw/yzFLtZKyu/NSKp0YOaDVCqjlg4ZMLc6acMGtYGbqY8+1WDw4+mc+X7gPEDlKBWC8ToDHylp84aEotdn2bro3Kl5AYFvexq6m3If/0ElqdOD4Uxne57AyVLriEhY8xQ8iBGSSJ5QN29CkiSocBWqxD9c2ZShqbx9EdkGuZcx0jtUaojtWsIZWMfHkqGDNqRieJThkEjaBqaaq43HUbRfJdKGEAVL5LyDfGz75kXlcZgW1yBjNY6r/omdNh1gNCzKqYsYFlTMq/VFfC86AtZ1m/RLJ6H7XWvvHjisdL+InQgtVuffG9qs36sY1vOFSZvSCL3FDX5/jPuiG45d9Bk0vPmuHzNbpTcIPvMNgTmr5+tdSimelQtd3OrvuFaHIjjca8wV1g2cBr7R+qcx08mtdAAn0Yv85Xv8ldWHYXKc/KpYiOvmSQoh3Wa8C+a/hib/aneiszFCFL8V70ldFRT2J3FxEZU6lTQTCC7KfMbbq59u1uV845sN6MafgnxneIQacflNyewGOpqS55AdOtwOHR7BpJkuAeinECXGoI6Fc="
   location:
     world: world
     x: 10
@@ -87,12 +87,12 @@ quests:
       4:
         amount: 2
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 5
       5:
         amount: 3
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 5
       6:
         amount: 1
@@ -167,12 +167,12 @@ quests:
       4:
         amount: 3
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 5
       5:
         amount: 5
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 3
       6:
         amount: 1
@@ -252,17 +252,17 @@ quests:
       3:
         amount: 3
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 20
       4:
         amount: 5
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 5
       5:
         amount: 10
         item: minelia_piece
-        translation: "pièce Minelia"
+        translation: "pièces Minelia"
         probability: 3
       6:
         amount: 1
